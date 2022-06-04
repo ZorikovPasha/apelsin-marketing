@@ -1,0 +1,261 @@
+.footer {
+
+  padding-top: 100px;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  background-image: url('../images/footer-bg.svg');
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  // .footer__title
+
+  &__title {
+    @extend %h2;
+    margin-bottom: 80px;
+  }
+
+  // .footer__form
+
+  &__form {
+    margin-bottom: 80px;
+  }
+
+  // .footer__form-line
+
+  &__form-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  // .footer__form-box
+
+  &__form-box {
+    max-width: 653px;
+    width: 100%;
+  }
+
+  &__form-box + &__form-box {
+    margin-left: 20px;
+  }
+
+  // .footer__form-label
+
+  &__form-label {
+    display: inline-block;
+    margin-bottom: 15px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: #90949B;
+  }
+
+
+  // .footer__form-input
+
+  &__form-input {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: #101010;
+    font-family: 'TryChotherReg';
+
+    height: 50px;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #DCDCDC;
+    &::placeholder {
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: -0.01em;
+      color: #101010;
+      font-family: 'TryChotherReg';
+      white-space: pre-wrap;
+    }
+  }
+
+  // .footer__form-btn
+
+  &__form-btn {
+    background-color: #101010;
+    color: #fff;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 13px 0;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: all .4s;
+    &:hover {
+      background-color: rgba(#101010, .7);
+    }
+  }
+
+  &__form-message {
+    margin-bottom: 30px;
+  }
+
+  // .footer__form-term
+
+  &__form-term {
+    font-weight: normal;
+    font-size: 13.5px;
+    line-height: 20px;
+    letter-spacing: -0.01em;
+    color: #90949B;
+  }
+
+  // .footer__bottom
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 53px;
+    width: 100%;
+  }
+
+  &__bottom-right {
+    text-align: right;
+  }
+
+  // .footer__bottom-text
+
+  &__bottom-text {
+    font-size: 18px;
+    line-height: 27px;
+    color: #101010;
+    font-weight: 400;
+    font-family: 'TryChotherReg';
+  }
+
+  &__bottom-text:first-child {
+    margin-bottom: 10px;
+  }
+}
+
+.footer-list {
+
+  display: flex;
+  align-items: center;
+
+  // .footer-list__item
+
+  &__item {
+  }
+
+  &__item + &__item {
+    margin-left: 20px;
+  }
+
+  // .footer-list__link
+
+  &__link {
+    img {
+      opacity: 1;
+      transition: all .4s;
+    }
+    &:hover img {
+      opacity: .6;
+    }
+  }
+}
+
+@media (max-width:1360px) {
+  .footer__title {
+    font-size: 150px;
+    line-height: 120px;
+  }
+}
+
+@media (max-width:1180px) {
+  .footer__title {
+    font-size: 110px;
+    line-height: 90px;
+  }
+  .footer__bottom {
+    flex-wrap: wrap;
+    padding-bottom: 33px;
+  }
+  .footer__bottom-box {
+    max-width: 45%;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .footer__bottom-text:first-child {
+    margin-bottom: 0px;
+  }
+  .footer-list {
+    margin-top: 20px;
+    justify-content: center;
+  }
+}
+
+@media (max-width:900px) {
+  .footer__title {
+    font-size: 90px;
+    line-height: 70px;
+  }
+}
+
+
+@media (max-width:787px) {
+  .footer {
+    padding-top: 80px;
+  }
+  .footer__title {
+    font-size: 70px;
+    line-height: 50px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+  .footer__form {
+    margin-bottom: 50px;
+  }
+  .footer__form-line {
+    flex-wrap: wrap;
+  }
+  .footer__form-box {
+    max-width: 100%;
+  }
+  .footer__form-box + .footer__form-box {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  .footer__bottom-box {
+    max-width: 100%;
+  }
+}
+
+@media (max-width:660px) {
+  .footer__form-message {
+    height: 100px;
+  }
+}
+
+@media (max-width:500px) {
+  .footer__title {
+    font-size: 55px;
+    line-height: 45px;
+  }
+  .footer__form-message {
+    height: 110px;
+  }
+}
+
+
+@media (max-width:385px) {
+  .footer__title {
+    font-size: 45px;
+    line-height: 40px;
+  }
+}
