@@ -1,49 +1,47 @@
 import React from 'react';
-
 import { ROUTES } from '../utils/const';
-
-const LazyAbout = React.lazy(() => import('../pages/about'));
-const LazyHome = React.lazy(() => import('../pages'));
-const LazyPress = React.lazy(() => import('../pages/press'));
-const LazyProject = React.lazy(() => import('../pages/project'));
-const LazyProjects = React.lazy(() => import('../pages/projects'));
-const LazyServices = React.lazy(() => import('../pages/services'));
-const LazyDesignProject = React.lazy(() => import('../pages/design-project'));
+import About from '../pages/about';
+import DesignProject from '../pages/design-project';
+import Home from '../pages';
+import Press from '../pages/press';
+import Project from '../pages/project';
+import Projects from '../pages/projects';
+import Services from '../pages/services'; 
 
 export const publicRoutes = [
   {
     path: ROUTES.About,
-    component: LazyAbout,
+    component: About,
     exact: true
   },
   {
     path: ROUTES.Home,
-    component: LazyHome,
+    component: Home,
     exact: true
   },
   {
     path: ROUTES.Press,
-    component: LazyPress,
+    component: Press,
     exact: true
   },
   {
     path: ROUTES.Projects,
-    component: LazyProjects,
+    component: Projects,
     exact: true
   },
   {
     path: ROUTES.Project,
-    component: LazyProject,
+    component: Project,
     exact: true
   },
   {
     path: ROUTES.Services,
-    component: LazyServices,
+    component: Services,
     exact: true
   },
   {
     path: ROUTES.DesignProject,
-    component: LazyDesignProject,
+    component: DesignProject,
     exact: true
   },
 ];

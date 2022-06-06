@@ -1,57 +1,42 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../../utils/const";
 
 export const Header = () => {
+  const items = [
+    { to: ROUTES.Services, text: "Услуги" },
+    { to: ROUTES.Projects, text: "Проекты" },
+    { to: ROUTES.Press, text: "Отзывы" },
+    { to: ROUTES.Press, text: "Пресса" },
+    { to: ROUTES.About, text: "О нас" },
+    { to: ROUTES.Projects, text: "Блог" },
+  ]
+
   return (
     <header className="header">
       <div className="container">
         <div className="header__inner">
-          <a className="header__logo" href="#">
+          <Link className="header__logo" to={ROUTES.Home}>
             <img src="images/header-logo.svg" alt="" />
-          </a>
+          </Link>
           <nav className="menu">
             <ul className="menu__list">
-              <li className="menu__list-item">
-                <a className="menu__list-link" href="services.html">
-                  Услуги
-                </a>
-              </li>
-              <li className="menu__list-item">
-                <a className="menu__list-link" href="projects.html">
-                  Проекты
-                </a>
-              </li>
-              <li className="menu__list-item">
-                <a className="menu__list-link" href="press.html">
-                  Отзывы
-                </a>
-              </li>
-              <li className="menu__list-item">
-                <a className="menu__list-link" href="press.html">
-                  Пресса
-                </a>
-              </li>
-              <li className="menu__list-item">
-                <a className="menu__list-link" href="about.html">
-                  О нас
-                </a>
-              </li>
-              <li className="menu__list-item">
-                <a className="menu__list-link" href="about.html">
-                  Блог
-                </a>
-              </li>
+              {items.map(({ to, text }) => (
+                <li className="menu__list-item" key={text}>
+                  <Link className="menu__list-link" to={to}>
+                    {text}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
           <nav className="user-nav">
             <a className="user-nav__tel" href="tel:+74951222286">
               +7 (495) 122-22-86
             </a>
-            <a className="user-nav__btn" href="#">
+            <button className="user-nav__btn">
               Обратный звонок
-            </a>
-            <a className="user-nav__contacts" href="#">
-              Контакты
-            </a>
+            </button>
             <ul className="user-nav__social">
               <li className="user-nav__social-item">
                 <a className="user-nav__social-link" href="#">

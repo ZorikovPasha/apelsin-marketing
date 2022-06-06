@@ -46,19 +46,19 @@ export const Footer = () => {
             <p className="footer__bottom-text">Соц. сети</p>
             <ul className="footer__bottom-list footer-list">
               <li className="footer-list__item">
-                <a className="footer-list__link" href="#">
+                <span className="footer-list__link">
                   <img src="images/fb.svg" alt="" />
-                </a>
+                </span>
               </li>
               <li className="footer-list__item">
-                <a className="footer-list__link" href="#">
+                <span className="footer-list__link">
                   <img src="images/inst.svg" alt="" />
-                </a>
+                </span>
               </li>
               <li className="footer-list__item">
-                <a className="footer-list__link" href="#">
+                <span className="footer-list__link">
                   <img src="images/yt.svg" alt="" />
-                </a>
+                </span>
               </li>
             </ul>
           </div>

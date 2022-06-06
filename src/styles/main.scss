@@ -46,15 +46,10 @@
     justify-content: space-between;
     padding: 80px 0;
   }
-
-  // .clients__item
-
-  &__item {
-  }
 }
 .clients-video {
-
   min-height: 500px;
+  background-image: url("../images/clients-video-bg.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
