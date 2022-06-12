@@ -1,11 +1,13 @@
 import React from 'react'
 import { SectionLinks } from '../components'
 import { ROUTES } from '../utils/const'
+import PressImg from "../images/press-img.jpg"
+import Play from "../images/video-play.svg" 
 
 const Press = () => {
   const links = [
-    { link: "О нас", to: ROUTES.About },
-    { link: "Проекты", to: ROUTES.Projects },
+    { link: "О нас", to: ROUTES.About, left: true },
+    { link: "Проекты", to: ROUTES.Projects, left: false },
   ]
 
   return (
@@ -15,7 +17,7 @@ const Press = () => {
           <h3 className="title">СМИ о нас</h3>
             <div className="press-items__item">
               <div className="press-items__img">
-                <img src="images/press-img.jpg" alt=""/>
+                <img src={PressImg} alt=""/>
               </div>
               <div className="press-items__info">
                 <p className="press-items__text">
@@ -36,12 +38,12 @@ const Press = () => {
                 </p>
               </div>
               <div className="press-items__img">
-                <img src="images/press-img.jpg" alt=""/>
+                <img src={PressImg} alt=""/>
               </div>
             </div>
             <div className="press-items__item">
               <div className="press-items__img">
-                <img src="images/press-img.jpg" alt=""/>
+                <img src={PressImg} alt=""/>
               </div>
               <div className="press-items__info">
                 <p className="press-items__text">
@@ -57,9 +59,9 @@ const Press = () => {
 
       <section className="press-interview">
         <h3 className="title">Интервью</h3>
-        <div className="press-interview__video" style={{backgroundImage: "images/interview-bg.jpg"}}>
+        <div className="press-interview__video">
           <a className="press-interview__video-play" href="https://youtu.be/7OcK1TMnbe0" data-fancybox>
-            <img src="images/video-play.svg" alt=""/>
+            <img src={Play} alt=""/>
           </a>
         </div>
       </section>

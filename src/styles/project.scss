@@ -14,21 +14,11 @@
   &__inner {
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: flex-start;
   }
 
   &__inner + &__inner {
     margin-top: 120px;
-  }
-
-  // .project-top__location
-
-  &__location {
-  }
-
-  // .project-top__metrage
-
-  &__metrage {
   }
 
   // .project-top__text
@@ -67,6 +57,7 @@
     padding-bottom: 40%;
     width: 48%;
     height: 500px;
+
     img {
       position: absolute;
       width: 100%;
@@ -84,12 +75,6 @@
     .slick-slide + .slick-slide {
       margin-left: 80px;
     }
-
-  }
-
-  // .project-images__slider-item
-
-  &__slider-item {
   }
 
   &__slider-item + &__slider-item {

@@ -27,8 +27,20 @@ body {
   color: #101010;
 }
 
+body.lock {
+  overflow: hidden;
+}
+
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 button {
   background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .container {
@@ -53,6 +65,7 @@ button {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  flex-grow: 1;
   overflow-x: hidden;
 }
 
@@ -132,6 +145,7 @@ button {
   display: flex !important;
   justify-content: center;
   align-items: center;
+
   li {
     margin-right: 8px;
   }
@@ -167,11 +181,9 @@ button {
 
 
 .projects {
-
   padding-bottom: 100px;
 }
 .projects-map {
-
   min-height: 635px;
   background-image: url("../images/map.svg");
   background-position: center;
@@ -193,8 +205,6 @@ button {
   // .projects-map__circle--1
 
   &__circle--1 {
-    // top: 349px;
-    // left: 314px;
     top: 53%;
     left: 22%;
   }
@@ -202,8 +212,6 @@ button {
   // .projects-map__circle--2
 
   &__circle--2 {
-    // top: 310px;
-    // left: 614px;
     top: 48%;
     left: 45%;
   }
@@ -211,8 +219,6 @@ button {
   // .projects-map__circle--3
 
   &__circle--3 {
-    // top: 298px;
-    // left: 672px;
     top: 46%;
     left: 49%;
   }
@@ -220,8 +226,6 @@ button {
   // .projects-map__circle--4
 
   &__circle--4 {
-    // top: 200px;
-    // left: 794px;
     top: 32%;
     left: 57%;
   }
@@ -233,8 +237,11 @@ button {
     position: absolute;
     background-size: contain;
     background-repeat: no-repeat;
-    // background-position: center;
     z-index: 6;
+
+    &.active {
+      display: block;
+    }
   }
 
   &__card--1 {
@@ -268,7 +275,9 @@ button {
     justify-content: flex-end;
     color: #FFFFFF;
     padding: 0px 0px 20px 20px;
-    background-image: url("../images/projects-card.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   // .projects-map__card-location
@@ -415,11 +424,6 @@ button {
     margin-top: 30px;
   }
 
-  // .team__members-item
-
-  &__members-item {
-  }
-
   // .team__members-img
 
   &__members-img {
@@ -470,9 +474,6 @@ button {
     line-height: 150%;
     color: #90949B;
     margin-bottom: 50px;
-  }
-
-  &__founder-text {
   }
 
   &__founder-text + &__founder-text {
@@ -628,7 +629,7 @@ button {
 
   &__inner-left {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
   }
 
   // .image-section__info
@@ -636,7 +637,6 @@ button {
   &__info {
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
 
     .section__link {
       margin-top: auto;
@@ -772,22 +772,26 @@ button {
     position: relative;
     margin-bottom: 80px;
   }
+
+  &__title-link-arr {
+    transition: all .2s;
+    opacity: 1;
+
+    &:hover, 
+    &:focus {
+      transform: translate(10%, -10%);
+    }
+
+    &:active {
+      opacity: .8;
+    }
+  }
 }
 
 .instagram-slider {
 
-  // .instagram-slider__item
-
-  &__item {
-  }
-
   .slick-slide + .slick-slide {
     margin-left: 80px;
-  }
-
-  // .instagram-slider__item-img
-
-  &__item-img {
   }
 }
 

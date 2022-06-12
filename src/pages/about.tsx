@@ -10,8 +10,8 @@ import Award2 from "../images/awards-2.jpg"
 
 const About = () => {
   const links = [
-    { link: "Блог", to: ROUTES.Press },
-    { link: "Пресса", to: ROUTES.Press },
+    { link: "Блог", to: ROUTES.Press, left: true },
+    { link: "Пресса", to: ROUTES.Press, left: false },
   ]
   
   const partners = [
@@ -28,7 +28,7 @@ const About = () => {
         </div>
       </section>
 
-      <TeamBoard />
+      <TeamBoard hasTitle={false} />
 
       <ProjectsMap titleClass="about-projects__title" />
 

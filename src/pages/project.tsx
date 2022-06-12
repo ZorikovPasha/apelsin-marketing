@@ -1,5 +1,6 @@
 import React from 'react'
-import { InstSlider, SectionLinks } from '../components'
+import { useParams } from 'react-router-dom'
+import { SectionLinks, AppSlider } from '../components'
 import { ROUTES } from '../utils/const'
 import Project1 from "../images/project/project-1.jpg"
 import Project2 from "../images/project/project-2.jpg"
@@ -13,12 +14,59 @@ import Project9 from "../images/project/project-9.jpg"
 import Project10 from "../images/project/project-10.jpg"
 import topBg from "../images/content/top-bg.jpg"
 import topBgMobile from "../images/top-bg-mobile.jpg"
+import Preview1 from "../images/projects/project-slide-1.jpg"
+import Preview2 from "../images/projects/project-slide-2.jpg"
+import Preview3 from "../images/projects/project-slide-3.jpg"
+import Preview4 from "../images/projects/project-slide-4.jpg"
+import Preview5 from "../images/projects/project-slide-5.jpg"
+import ProjectImg1 from "../images/project/project-images-img-1.jpg"
+import ProjectImg2 from "../images/project/project-images-img-2.jpg"
+import ProjectBg from "../images/project/project-images-bg.jpg"
+import ProjectBgMobile from "../images/project/project-images-bg-mobile.jpg"
 
 const Project = () => {
+  const {id} = useParams();
+  console.log("id", id);
+  
+
   const links = [
-    { link: "Название пред. проекта", to: ROUTES.Project },
-    { link: "Название след. проекта", to: ROUTES.Project },
+    { link: "Название пред. проекта", to: ROUTES.Project, left: true },
+    { link: "Название след. проекта", to: ROUTES.Project, left: false },
   ]
+
+  const imagesSliderSettings = {
+    infinite: false,
+    arrows: false,
+    variableWidth: true,
+    centerMode: true,
+    initialSlide: 2,
+    responsive: [
+      {
+        breakpoint: 400,
+        settings: {
+          dots: true,
+        }
+      },
+    ]
+  }
+
+  const previewsSliderSettings = {
+    infinite: false,
+    arrows: false,
+    variableWidth: true,
+    centerMode: true,
+    initialSlide: 2,
+    responsive: [
+      {
+        breakpoint: 400,
+        settings: {
+          dots: true,
+        },
+      },
+    ],
+  }
+
+  const sliides = [Preview1, Preview2, Preview3, Preview4, Preview5];
 
   return (
     <>
@@ -40,7 +88,13 @@ const Project = () => {
         </div>
 
         <div className="container-fluid">
-        <InstSlider />
+          <AppSlider rootClass='instagram-slider' settings={previewsSliderSettings} hasArrows={false}>
+          {sliides.map((img, idx) => (
+            <div className="instagram-slider__item" key={idx}>
+              <img className="instagram-slider__item-img" src={img} alt="" />
+            </div>
+          ))}
+          </AppSlider>
         </div>
       </section>
 
@@ -53,18 +107,19 @@ const Project = () => {
           </picture>
           <div className="project-images__images">
             <div className="project-images__img">
-              <img src="images/project/project-images-img-1.jpg" alt=""/>
+              <img src={ProjectImg1} alt=""/>
             </div>
             <div className="project-images__img">
-              <img src="images/project/project-images-img-2.jpg" alt=""/>
+              <img src={ProjectImg2} alt=""/>
             </div>
           </div>
           <picture className="project-images__bg">
-            <source srcSet="images/project/project-images-bg.jpg" type="image/jpeg" media="(min-width: 375px)" />
-            <source srcSet="images/project/project-images-bg-mobile.jpg" type="image/jpeg" media="(max-width: 375px)" />
-            <img src="images/project/project-images-bg.jpg" alt=""/>
+            <source srcSet={ProjectBg} type="image/jpeg" media="(min-width: 375px)" />
+            <source srcSet={ProjectBgMobile} type="image/jpeg" media="(max-width: 375px)" />
+            <img src={ProjectBg} alt=""/>
           </picture>
-            <div className="project-images__slider">
+
+            <AppSlider rootClass="project-images__slider" hasArrows={false} settings={imagesSliderSettings}>
               <div className="project-images__slider-item">
                 <img src={Project1} alt=""/>
               </div>
@@ -80,8 +135,9 @@ const Project = () => {
               <div className="project-images__slider-item">
                 <img src={Project5} alt=""/>
               </div>
-            </div>
-            <div className="project-images__slider">
+            </AppSlider>
+
+            <AppSlider rootClass="project-images__slider" hasArrows={false} settings={imagesSliderSettings}>
               <div className="project-images__slider-item">
                 <img src={Project6} alt=""/>
               </div>
@@ -97,7 +153,7 @@ const Project = () => {
               <div className="project-images__slider-item">
                 <img src={Project10} alt=""/>
               </div>
-            </div>
+            </AppSlider>
         </div>
       </div>
 

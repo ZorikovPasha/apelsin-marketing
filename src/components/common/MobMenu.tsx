@@ -4,10 +4,19 @@ import { ROUTES } from "../../utils/const";
 import Fb from "../../images/fb.svg"
 import Inst from "../../images/inst.svg"
 import Yt from "../../images/yt.svg"
+import Close from "../../images/close.svg" 
 
-export const MobMenu = () => {
+interface IMobMenuProps {
+  isOpen: boolean
+  onClose: (e: any) => void
+}
+
+export const MobMenu = React.forwardRef<HTMLDivElement, IMobMenuProps>(({ isOpen, onClose }, ref) => {
   return (
-    <div className="mob-menu">
+    <div className={`mob-menu ${isOpen ? "active" : ""}`} ref={ref}>
+      <button className="mob-menu__close" onClick={onClose}>
+        <img src={Close} alt="cross" />
+      </button>
       <ul className="mob-menu__list">
         <li className="mob-menu__list-item">
           <a className="mob-menu__list-tel" href="tel:+74951222286">
@@ -15,9 +24,9 @@ export const MobMenu = () => {
           </a>
         </li>
         <li className="mob-menu__list-item">
-          <button className="mob-menu__list-btn">
+          <a className="mob-menu__list-btn" href="#form-title">
             Обратный звонок
-          </button>
+          </a>
         </li>
         <li className="mob-menu__list-item">
           <span className="mob-menu__list-contacts">
@@ -76,4 +85,4 @@ export const MobMenu = () => {
       </ul>
     </div>
   );
-};
+});

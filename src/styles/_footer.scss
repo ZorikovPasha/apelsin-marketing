@@ -63,12 +63,16 @@
     letter-spacing: -0.01em;
     color: #101010;
     font-family: 'TryChotherReg';
+    padding: 10px 20px;
 
-    height: 50px;
     width: 100%;
     border: none;
     background-color: transparent;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
     border-bottom: 1px solid #DCDCDC;
+
     &::placeholder {
       font-weight: normal;
       font-size: 16px;
@@ -77,6 +81,10 @@
       color: #101010;
       font-family: 'TryChotherReg';
       white-space: pre-wrap;
+    }
+
+    &--error {
+      border: 1px solid red;
     }
   }
 
@@ -145,11 +153,6 @@
 
   display: flex;
   align-items: center;
-
-  // .footer-list__item
-
-  &__item {
-  }
 
   &__item + &__item {
     margin-left: 20px;

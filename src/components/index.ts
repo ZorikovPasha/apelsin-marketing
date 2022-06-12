@@ -8,6 +8,8 @@ import { SectionLinks } from "./common/SectionLinks";
 import { ImageSection } from "./common/ImageSection";
 import { InstSlider } from "./common/INstSlider";
 import { Top } from "./TopSlider";
+import { ArrRight } from "./common/ArrRight";
+import { AppSlider } from "./common/Slider";
 
 export { Header, Footer, MobMenu, Loader, TeamBoard, ProjectsMap, SectionLinks,
-  ImageSection, InstSlider, Top }
+  ImageSection, InstSlider, Top, ArrRight, AppSlider }

@@ -15,11 +15,6 @@
 
   }
 
-  // .press-items__img
-
-  &__img {
-  }
-
   &__img + &__info {
     padding-left: 32px;
   }
@@ -29,24 +24,18 @@
     padding-right: 32px;
   }
 
-  // .press-items__text
-
-  &__text {
-  
-  }
-
   &__text + &__text {
     margin-top: 15px;
   }
 }
 
 .press-interview {
-
   padding-bottom: 140px;
 
   // .press-interview__video
 
   &__video {
+    background-image: url("../images/interview-bg.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

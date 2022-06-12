@@ -3,7 +3,7 @@ export enum ROUTES {
   About = "/about",
   DesignProject = "/design-project",
   Press = "/press",
-  Project = "/project",
+  Project = "/project/:id",
   Projects = "/projects",
   Services = "/services"
 }
