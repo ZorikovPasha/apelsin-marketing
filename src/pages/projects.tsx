@@ -5,13 +5,10 @@ import ProjectsImg from "../images/projects/projects-img.jpg";
 import Project1 from "../images/projects/project-1.jpg";
 import Project2 from "../images/projects/project-2.jpg";
 import Project3 from "../images/projects/project-3.jpg";
-import Card1 from "../images/projects-card.jpg";
-import Card2 from "../images/projects-card-2.jpg";
-import Card3 from "../images/projects-card-3.jpg";
-import Card4 from "../images/projects-card-4.jpg";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { IPageProps } from "../types";
 
-const Projects = () => {
+const Projects: React.FC<IPageProps> = ({ projects }) => {
   const links = [
     { link: "Услуги", to: ROUTES.Services, left: true },
     { link: "Блог", to: ROUTES.Press, left: false },
@@ -89,13 +86,6 @@ const Projects = () => {
     ],
   };
 
-  const projects = [
-    { id: 1, location: "Флорида", name: "Загородный дом в посёлке Комильфо", img: Card1, sqFoot: 336.2 },
-    { id: 2, location: "Испания", name: "Дом в стиле лофт на берегу моря", img: Card2, sqFoot: 650 },
-    { id: 3, location: "Греция", name: "Вилла на побережье", img: Card3, sqFoot: 856 },
-    { id: 4, location: "Россия", name: "Усадьба чиновника", img: Card4, sqFoot: 540 },
-  ];
-
   return (
     <>
       <section className="projects-top">
@@ -103,10 +93,10 @@ const Projects = () => {
           <h3 className="projects-top__title title">Проекты</h3>
 
           <AppSlider settings={settings} rootClass="projects-slider">
-            {projects.map(({ id, location, name, img, sqFoot }) => (
+            {projects?.map(({ id, location, name, pics, sqFoot }) => (
               <div className="projects-slider__item" key={name}>
                 <p className="projects-slider__name">{name}</p>
-                <img className="projects-slider__bg" src={img} alt="" />
+                <img className="projects-slider__bg" src={pics.full} alt="" />
                 <div className="projects-slider__inner">
                   <div className="projects-slider__info">
                     <p className="projects-slider__text">Локация: {location}</p>
@@ -114,10 +104,11 @@ const Projects = () => {
                       Метраж: {sqFoot} м<sup>2</sup>
                     </p>
                   </div>
-                  <Link className="section__link" to={`/projects/${id}`}>
+                  <NavLink className="section__link" to={`/project/` + id}>
                     Подробнее
+
                     <ArrRight />
-                  </Link>
+                  </NavLink>
                 </div>
               </div>
             ))}

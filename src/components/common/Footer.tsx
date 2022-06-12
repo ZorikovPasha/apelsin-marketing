@@ -19,7 +19,11 @@ export const Footer = () => {
     formState: { errors },
   } = useForm<FormData>();
   const onSubmit = handleSubmit((data) => {
-    UserApiClient.sendRequest(data).then(res => reset())
+    UserApiClient.sendRequest(data).then(res => {
+      if (res === "Created") {
+        reset()
+      }
+    })
   });
 
   return (

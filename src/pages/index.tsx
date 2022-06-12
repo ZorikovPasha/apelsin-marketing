@@ -19,8 +19,10 @@ import Logo2 from "../images/images-logo-1.svg";
 import Logo4 from "../images/images-logo-3.svg";
 import Play from "../images/video-play.svg";
 import { ROUTES } from "../utils/const";
+import { IPageProps } from "../types";
 
-const Home = () => {
+const Home: React.FC<IPageProps> = ({ projects }) => {
+  
   const services = [
     "Дизайн",
     "Архитектура",
@@ -68,7 +70,7 @@ const Home = () => {
         </div>
       </section>
 
-      <ProjectsMap />
+      <ProjectsMap projects={projects} />
 
       <div className="images">
         <div className="container-fluid">

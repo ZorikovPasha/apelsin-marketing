@@ -1,9 +1,9 @@
 import React from "react";
 import Slider from "react-slick";
 import TopBg1 from "../images/content/top-bg.jpg";
-import TopBg2 from "../images/projects-card-2.jpg";
-import TopBg3 from "../images/projects-card-3.jpg";
-import TopBg4 from "../images/projects-card-4.jpg";
+// import TopBg2 from "../images/projects-card-2.jpg";
+// import TopBg3 from "../images/projects-card-3.jpg";
+// import TopBg4 from "../images/projects-card-4.jpg";
 import ArrPrev from "../images/slider-arr-left.svg";
 import ArrNext from "../images/slider-arr-right.svg";
 
@@ -56,7 +56,7 @@ export const Top = () => {
           <div className="top-slider__item">
             <img src={TopBg1} alt="" />
           </div>
-          <div className="top-slider__item">
+          {/* <div className="top-slider__item">
             <img src={TopBg2} alt="" />
           </div>
           <div className="top-slider__item">
@@ -64,7 +64,7 @@ export const Top = () => {
           </div>
           <div className="top-slider__item">
             <img src={TopBg4} alt="" />
-          </div>
+          </div> */}
         </Slider>
       </div>
       <div className="container">

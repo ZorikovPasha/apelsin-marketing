@@ -6,7 +6,7 @@ import Img2 from "../images/projects/project-2.jpg"
 import Img3 from "../images/projects/project-3.jpg"
 import TopBg from "../images/projects/projects-top-bg.jpg"
 import { Link } from 'react-router-dom'
-import ProjectsBg from "../images/projects/projects-items-bg.jpg"
+import ProjectsBg from "../images/content/top-bg.jpg"
 
 export const DesignProject = () => {
   const links = [

@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosError, AxiosInstance } from 'axios';
 import { FormData } from "../components/common/Footer"
+import { ProjectType } from '../types';
 
 const URI = process.env.NODE_ENV === 'production' ? 'https://react-loft-mebel.herokuapp.com/' : 'http://localhost:5000';
 
@@ -54,8 +55,13 @@ class Api extends Axios {
 
 class UserApi extends Api {
   sendRequest = (data: FormData) => {
-    return this.post("/api/request", data)
+    return this.post("/request/make", data)
   }
+
+  getProjects = () => {
+    return this.get<ProjectType[]>("/api/projects")
+  }
+
 }
 
 

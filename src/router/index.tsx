@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Header, Footer, MobMenu, Loader } from "../components";
 import { ROUTES } from "../utils/const";
 import Home from "../pages"; 
+import { UserApiClient } from "../api";
+import { ProjectType } from "../types";
 const LazyAbout = React.lazy(() => import('../pages/about'));
 const LazyPress = React.lazy(() => import('../pages/press'));
 const LazyProject = React.lazy(() => import('../pages/project'));
@@ -16,7 +18,7 @@ export const AppRouter: React.FC = () => {
   
   const mobMenuRef = React.useRef(null)
   const menuButtonRef = React.useRef<HTMLButtonElement>(null)
-
+  const [projects, setProjects] = React.useState<ProjectType[]>([])
 
   React.useEffect(() => {
     const onClose = (e: any) => {
@@ -32,7 +34,13 @@ export const AppRouter: React.FC = () => {
     return () => document.body.removeEventListener("click", onClose)
   }, [])
 
-  const onClose = (e: any) => {
+  React.useEffect(() => {
+    UserApiClient.getProjects().then(data => {
+      setProjects(data)
+    })
+  }, [])
+
+  const onClose = () => {
     document.body.classList.remove("lock")
     menuButtonRef?.current?.classList.remove("active")
     setMobMenuOpen(false)
@@ -46,11 +54,12 @@ export const AppRouter: React.FC = () => {
         <main className="main">
           <Suspense fallback={ <Loader />}>
             <Routes>
-              <Route path="/*" element={<Home />} />
-              <Route path={ROUTES.About} element={<LazyAbout />} />
+              <Route path="/*" element={<Home projects={projects} />} />
+              <Route path={ROUTES.About} element={<LazyAbout projects={projects} />} />
               <Route path={ROUTES.Press} element={<LazyPress />} />
-              <Route path={ROUTES.Project} element={<LazyProject />} />
-              <Route path={ROUTES.Projects} element={<LazyProjects />} />
+
+              <Route path={ROUTES.Project} element={<LazyProject projects={projects} />} />
+              <Route path={ROUTES.Projects} element={<LazyProjects projects={projects} />} />
               <Route path={ROUTES.Services} element={<LazyServices />} />
               <Route path={ROUTES.DesignProject} element={<LazyDesignProject />} />
               {/* {publicRoutes.map(({ path, component, exact }) => (

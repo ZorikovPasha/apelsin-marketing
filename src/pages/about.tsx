@@ -6,9 +6,9 @@ import Partner2 from "../images/partners-2.svg"
 import Partner3 from "../images/partners-3.svg"
 import Partner4 from "../images/partners-4.svg"
 import Award1 from "../images/awards-1.jpg"
-import Award2 from "../images/awards-2.jpg"
+import { IPageProps } from '../types'
 
-const About = () => {
+const About: React.FC<IPageProps> = ({ projects }) => {
   const links = [
     { link: "Блог", to: ROUTES.Press, left: true },
     { link: "Пресса", to: ROUTES.Press, left: false },
@@ -18,7 +18,7 @@ const About = () => {
     Partner1, Partner2, Partner3, Partner2, Partner3, Partner4
   ]
 
-  const awards = [ Award1, Award2, Award2, Award2 ]
+  const awards = [ Award1, Award1, Award1, Award1 ]
 
   return (
     <>
@@ -30,7 +30,7 @@ const About = () => {
 
       <TeamBoard hasTitle={false} />
 
-      <ProjectsMap titleClass="about-projects__title" />
+      <ProjectsMap titleClass="about-projects__title" projects={projects} />
 
       <section className="about-partners">
         <div className="container-fluid">
