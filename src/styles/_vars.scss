@@ -1,7 +1,7 @@
 
 %h2 {
-  font-size: 180px;
-  line-height: 140px;
+  font-size: 120px;
+  line-height: 130px;
   font-family: 'TryChotherReg';
   font-weight: 400;
   letter-spacing: -0.04em;
@@ -9,11 +9,11 @@
   overflow-y: hidden;
   text-align: center;
   position: relative;
-  margin: 0 52px;
+  
   &::after{
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: 2px;
     left: 0;
     right: 0;
     height: 1px;
@@ -36,7 +36,7 @@
   display: inline-block;
   font-family: 'TryChotherReg';
   font-weight: 400;
-  font-size: 57px;
+  font-size: 50px;
   line-height: 57px;
   color: #DCDCDC;
   position: relative;

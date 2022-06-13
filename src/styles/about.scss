@@ -35,11 +35,6 @@
     margin-top: 47px;
   }
 
-  // .about-partners__item
-
-  &__item {
-  }
-
   &__item + &__item {
     margin-left: 103px;
   }
@@ -61,7 +56,7 @@
 
   &__items {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-between;
     padding: 0 52px;
   }
@@ -83,8 +78,6 @@
       background-image: url('../images/awards-logo.png');
     }
   }
-
-  &__img {}
 }
 
 .team {

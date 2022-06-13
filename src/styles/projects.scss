@@ -12,12 +12,6 @@
 }
 
 .projects-slider {
-
-  // .projects-slider__item
-
-  &__item {
-  }
-
   // .projects-slider__name
 
   &__name {
@@ -47,11 +41,6 @@
 
   &__info {
     margin-top: 25px;
-  }
-
-  // .projects-slider__text
-
-  &__text {
   }
 
   &__text + &__text {
@@ -121,20 +110,10 @@
     margin-bottom: 5px;
   }
 
-  // .projects-section__info-metrage
-
-  &__info-metrage {
-  }
-
   // .projects-section__slider
 
   &__slider {
     max-width: 932px;
-  }
-
-  // .projects-section__slider-item
-
-  &__slider-item {
   }
 }
 
