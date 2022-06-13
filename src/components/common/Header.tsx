@@ -15,7 +15,7 @@ export const Header: React.FC<IHeaderProps> = ({ openMobMenu, menuButtonRef }) =
   const items = [
     { to: ROUTES.Services, text: "Услуги" },
     { to: ROUTES.Projects, text: "Проекты" },
-    { to: ROUTES.Press, text: "Отзывы" },
+    { to: ROUTES.DesignProject, text: "Отзывы" },
     { to: ROUTES.Press, text: "Пресса" },
     { to: ROUTES.About, text: "О нас" },
     { to: ROUTES.Projects, text: "Блог" },

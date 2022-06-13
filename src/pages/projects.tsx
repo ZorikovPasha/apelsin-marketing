@@ -29,48 +29,6 @@ const Projects: React.FC<IPageProps> = ({ projects }) => {
     ],
   };
 
-  const project1SliderSettings = {
-    fade: true,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          arrows: false,
-        },
-      },
-    ],
-  };
-
-  const project2SliderSettings = {
-    fade: true,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          arrows: false,
-        },
-      },
-    ],
-  };
-
-  const project3SliderSettings = {
-    fade: true,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          arrows: false,
-        },
-      },
-    ],
-  };
-
   const ImageSliderSettings = {
     dots: true,
     fade: true,
@@ -128,34 +86,18 @@ const Projects: React.FC<IPageProps> = ({ projects }) => {
                 <ArrRight />
               </span>
             </div>
-            <AppSlider settings={project1SliderSettings} rootClass="projects-section__slider">
-              <div className="projects-section__slider-item">
-                <img className="projects-section__slider-img" src={Project1} alt="" />
+              <div className="image-section__img">
+                <img src={Project1} alt="" />
               </div>
-              <div className="projects-section__slider-item">
-                <img className="projects-section__slider-img" src={Project1} alt="" />
-              </div>
-              <div className="projects-section__slider-item">
-                <img className="projects-section__slider-img" src={Project1} alt="" />
-              </div>
-            </AppSlider>
           </div>
         </div>
       </div>
       <div className="projects-section">
         <div className="container-fluid">
           <div className="projects-section__inner-left">
-            <AppSlider settings={project2SliderSettings} rootClass="projects-section__slider">
-              <div className="projects-section__slider-item">
-                <img className="projects-section__slider-img" src={Project2} alt="" />
+            <div className="image-section__img">
+                <img src={Project2} alt="" />
               </div>
-              <div className="projects-section__slider-item">
-                <img className="projects-section__slider-img" src={Project2} alt="" />
-              </div>
-              <div className="projects-section__slider-item">
-                <img className="projects-section__slider-img" src={Project2} alt="" />
-              </div>
-            </AppSlider>
             <div className="projects-section__info">
               <p className="projects-section__info-name">Квартира в стиле лофт</p>
               <p className="projects-section__info-descr">
@@ -181,19 +123,16 @@ const Projects: React.FC<IPageProps> = ({ projects }) => {
                 Подмосковный коттедж для активной семьи с двумя детьми. По выходным здесь часто принимают гостей, поэтому отправной точкой данного
                 интерьера стала просторная и яркая кухня-гостиная.
               </p>
+
+              <span className="section__link">
+                Подробнее
+                <ArrRight />
+              </span>
             </div>
 
-            <AppSlider settings={project3SliderSettings} rootClass="projects-section__slider">
-              <div className="projects-section__slider-item">
-                <img className="projects-section__slider-img" src={Project3} alt="" />
+              <div className="image-section__img">
+                <img src={Project3} alt="" />
               </div>
-              <div className="projects-section__slider-item">
-                <img className="projects-section__slider-img" src={Project3} alt="" />
-              </div>
-              <div className="projects-section__slider-item">
-                <img className="projects-section__slider-img" src={Project3} alt="" />
-              </div>
-            </AppSlider>
           </div>
         </div>
       </div>

@@ -1,28 +1,39 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { SectionLinks, AppSlider } from '../components'
-import { ROUTES } from '../utils/const'
-import { IPageProps } from '../types'
+import { IPageProps, ProjectType } from '../types'
 import { useNavigate } from 'react-router-dom';
 
 const Project: React.FC<IPageProps> = ({ projects }) => {
   const {id} = useParams();
   const navigate = useNavigate();
+  const [currProject, setCurrProject] = React.useState<ProjectType | undefined>()
+  const prevProj = React.useRef<ProjectType | undefined>()
+  const nextProj = React.useRef<ProjectType | undefined>()
+  
+  const links = React.useRef([
+    { link: "Название след. проекта", to: "/project/" + nextProj.current?.id, left: false },
+    { link: "Название пред. проекта", to: "/project/" + prevProj.current?.id, left: true },
+  ])
 
-  const  currProject = projects?.find(p => p.id === Number(id))
-    
   React.useEffect(() => {
-    console.log("projects", projects);
+    if (!projects?.length) {
+      return
+    }
+
+    const currProject = projects?.find(p => p.id === Number(id))
+    prevProj.current = projects?.find(p => p.id + 1 === Number(id))  
+    nextProj.current = projects?.find(p => p.id - 1 === Number(id))
+
+    links.current[0].to = "/project/" + nextProj.current?.id
+    links.current[1].to = "/project/" + prevProj.current?.id
+
     if (!currProject) {
       navigate("/")
     }
-  }, [])
-
-
-  const links = [
-    { link: "Название пред. проекта", to: ROUTES.Project, left: true },
-    { link: "Название след. проекта", to: ROUTES.Project, left: false },
-  ]
+    
+    setCurrProject(currProject)
+  }, [projects, id])
 
   const imagesSliderSettings = {
     infinite: false,
@@ -94,7 +105,7 @@ const Project: React.FC<IPageProps> = ({ projects }) => {
         </div>
       </div>
 
-      <SectionLinks items={links} />
+      <SectionLinks items={links.current} hasNext={!!nextProj.current} hasPrev={!!prevProj.current} />
     </>
   )
 }

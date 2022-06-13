@@ -6,6 +6,7 @@ import { ROUTES } from "../utils/const";
 import Home from "../pages"; 
 import { UserApiClient } from "../api";
 import { ProjectType } from "../types";
+import { AxiosError } from "axios";
 const LazyAbout = React.lazy(() => import('../pages/about'));
 const LazyPress = React.lazy(() => import('../pages/press'));
 const LazyProject = React.lazy(() => import('../pages/project'));
@@ -36,7 +37,7 @@ export const AppRouter: React.FC = () => {
 
   React.useEffect(() => {
     UserApiClient.getProjects().then(data => {
-      setProjects(data)
+      setProjects(data instanceof AxiosError || !Array.isArray(data) ? []: data)
     })
   }, [])
 

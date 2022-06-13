@@ -151,7 +151,7 @@ const Home: React.FC<IPageProps> = ({ projects }) => {
             {services.map((text) => (
               <div className="services__item" key={text}>
                 <p className="services__item-text">{text}</p>
-                <Link className="services__item-link item-link" to={ROUTES.Project}>
+                <span className="services__item-link item-link">
                   <p className="item-link__text">Подробнее</p>
                   <svg
                     width="24"
@@ -167,7 +167,7 @@ const Home: React.FC<IPageProps> = ({ projects }) => {
                       fill="#101010"
                     />
                   </svg>
-                </Link>
+                </span>
               </div>
             ))}
           </div>

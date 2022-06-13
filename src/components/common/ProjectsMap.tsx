@@ -14,7 +14,7 @@ export const ProjectsMap: React.FC<ProjectsMapPropsType> = ({ titleClass = "", p
   const onShowCard = (id: number) => {
     setActiveCard(activeCard === id ? null : id);
   };
-
+  
   return (
     <section className="projects">
       <div className="container-fluid">

@@ -18,6 +18,7 @@ export const Footer = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>();
+
   const onSubmit = handleSubmit((data) => {
     UserApiClient.sendRequest(data).then(res => {
       if (res === "Created") {
@@ -49,9 +50,13 @@ export const Footer = () => {
               <input 
                 className={`footer__form-input ${errors.phone ? "footer__form-input--error": ""}`}
                 type="text" 
-                placeholder="+7 (999) 999-99-99" 
+                placeholder="+7(999)9999999" 
                 defaultValue=""
-                {...register("phone", { required: true })}
+                {...register("phone", { required: true, 
+                  pattern: {
+                  value: /^((\+7|7|8)+([0-9]){10})$|\b\d{3}[-.]?\d{3}[-.]?\d{4}/,
+                  message: "invalid email address"
+                }})}
               />
             </div>
           </div>

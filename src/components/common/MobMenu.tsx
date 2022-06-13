@@ -24,7 +24,7 @@ export const MobMenu = React.forwardRef<HTMLDivElement, IMobMenuProps>(({ isOpen
           </a>
         </li>
         <li className="mob-menu__list-item">
-          <a className="mob-menu__list-btn" href="#form-title">
+          <a className="mob-menu__list-btn" href="#form-title" onClick={onClose}>
             Обратный звонок
           </a>
         </li>
@@ -63,7 +63,7 @@ export const MobMenu = React.forwardRef<HTMLDivElement, IMobMenuProps>(({ isOpen
           </Link>
         </li>
         <li className="mob-menu__list-item mob-menu__list--2">
-          <Link className="mob-menu__list-link" to={ROUTES.Press}>
+          <Link className="mob-menu__list-link" to={ROUTES.DesignProject}>
             Отзывы
           </Link>
         </li>

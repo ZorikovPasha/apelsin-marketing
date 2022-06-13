@@ -1,27 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-type SectionLinksPropsType = { items: Array<{ link: string; to: string; left: boolean }> };
+type SectionLinksPropsType = { 
+  items: { link: string; to: string; left: boolean }[]
+  hasNext?: boolean
+  hasPrev?: boolean
+};
 
-export const SectionLinks: React.FC<SectionLinksPropsType> = ({ items }) => {
+export const SectionLinks: React.FC<SectionLinksPropsType> = ({ items, hasNext=true, hasPrev=true }) => {
   return (
     <div className="section-links">
       <div className="container">
         <div className="section__links">
           {items.map(({ link, to, left }) => (
-            <div className="section__links-wrapper" key={link}>
-              <Link to={to} className={!left ? "section__link-left" : "section__link"}>
-                {left && link}
-                {left ? (
-                  <svg className="section__link-svg" width="50" height="44" viewBox="0 0 50 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M26.4875 1.32061C27.4151 0.393129 28.9186 0.393129 29.8461 1.32061L48.8461 20.3207C49.7736 21.2482 49.7736 22.7518 48.8461 23.6793L29.8461 42.6793C28.9186 43.6068 27.4151 43.6068 26.4875 42.6793C25.56 41.7518 25.56 40.2482 26.4875 39.3207L41.4329 24.375H2.8335C1.52183 24.375 0.458496 23.3116 0.458496 22C0.458496 20.6884 1.52183 19.625 2.8335 19.625H41.4329L26.4875 4.67937C25.56 3.75189 25.56 2.2481 26.4875 1.32061Z"
-                      fill="#DCDCDC"
-                    />
-                  </svg>
-                ) : (
+            left && hasPrev || !left && hasNext 
+              ? (
+                <div className="section__links-wrapper" key={link}>
+                {left && hasPrev && <Link to={to} className="section__link-left">
                   <svg className="section__link-svg" width="50" height="44" viewBox="0 0 50 44" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       fillRule="evenodd"
@@ -30,10 +25,21 @@ export const SectionLinks: React.FC<SectionLinksPropsType> = ({ items }) => {
                       fill="#DCDCDC"
                     />
                   </svg>
-                )}
-                {!left && link}
-              </Link>
-            </div>
+                  {link}
+                </Link>}
+                {!left && hasNext && <Link to={to} className="section__link">
+                  {link}
+                  <svg className="section__link-svg" width="50" height="44" viewBox="0 0 50 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M26.4875 1.32061C27.4151 0.393129 28.9186 0.393129 29.8461 1.32061L48.8461 20.3207C49.7736 21.2482 49.7736 22.7518 48.8461 23.6793L29.8461 42.6793C28.9186 43.6068 27.4151 43.6068 26.4875 42.6793C25.56 41.7518 25.56 40.2482 26.4875 39.3207L41.4329 24.375H2.8335C1.52183 24.375 0.458496 23.3116 0.458496 22C0.458496 20.6884 1.52183 19.625 2.8335 19.625H41.4329L26.4875 4.67937C25.56 3.75189 25.56 2.2481 26.4875 1.32061Z"
+                      fill="#DCDCDC"
+                    />
+                    </svg>
+                </Link>}
+              </div>
+              ): null
           ))}
         </div>
       </div>
