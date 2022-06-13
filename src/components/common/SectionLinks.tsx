@@ -13,7 +13,7 @@ export const SectionLinks: React.FC<SectionLinksPropsType> = ({ items, hasNext=t
       <div className="container">
         <div className="section__links">
           {items.map(({ link, to, left }) => (
-            left && hasPrev || !left && hasNext 
+            (left && hasPrev) || (!left && hasNext) 
               ? (
                 <div className="section__links-wrapper" key={link}>
                 {left && hasPrev && <Link to={to} className="section__link-left">

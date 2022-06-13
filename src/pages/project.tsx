@@ -74,7 +74,7 @@ const Project: React.FC<IPageProps> = ({ projects }) => {
       <div className="project-images">
         <div className="container-fluid">
           <div className="project-images__bg">
-            <img className="project-images__bg" src={"/" + currProject?.pics?.full} />
+            <img className="project-images__bg" src={"/" + currProject?.pics?.full} alt=""/>
           </div>
           <div className="project-images__images">
             <div className="project-images__img">
@@ -85,7 +85,7 @@ const Project: React.FC<IPageProps> = ({ projects }) => {
             </div>
           </div>
           <div className="project-images__bg">
-            <img src={"/" + currProject?.pics.previews[2]} />
+            <img src={"/" + currProject?.pics.previews[2]} alt="" />
           </div>
             <AppSlider rootClass="project-images__slider" hasArrows={false} settings={imagesSliderSettings}>
               {currProject?.pics.slider.slice(0,5).map((img) => (
