@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig, AxiosResponse, AxiosError, AxiosInstance } f
 import { FormData } from "../components/common/Footer"
 import { ProjectType } from '../types';
 
-const URI = process.env.NODE_ENV === 'production' ? 'https://sponge-phantom-stem.glitch.me/' : 'http://localhost:5000';
+const URI = process.env.NODE_ENV === 'production' ? process.env.API_URI : 'http://localhost:5000';
 
 
 export const apiConfig = {
